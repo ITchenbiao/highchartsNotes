@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>3d柱状图</title>
+	<script type="text/javascript" src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="https://img.hcharts.cn/highcharts/highcharts-3d.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+</head>
+<body>
+<div id="bar_l_echart" style="height: 400px；width:400px"></div>
+<script type="text/javascript">
+	$(function () {
+                $('#bar_l_echart').highcharts({
+                chart: {
+                    type: 'column',
+                    options3d: {
+                        enabled: true,
+                        alpha: 15,
+                        beta: 5,
+                        viewDistance: 25,
+                        depth: 0
+                    },
+                    marginTop: 30,
+                    marginRight: 40,
+                    backgroundColor: '#000',
+
+                },
+                credits: {
+                    enabled:false
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    backgroundColor:'rgba(0,0,0,.4)',
+                    borderWidth:0,
+                    shadow:false,
+                    style:{
+                        color:'#fff',
+                    },
+
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        depth: 40,
+                        dataLabels:{
+                            enabled:true, // dataLabels设为true
+                            style:{
+                                color:'#D7DEE9'
+                            }
+                        }
+                    }
+                },
+                xAxis: {
+                    gridLineWidth: 0,
+                    categories: ['红山区', '松山区', '元宝山区', '其他']
+                },
+                yAxis: {
+                    gridLineWidth: 0,
+                    title: {
+                        text: null
+                    }
+                },
+                series: [{
+                     // name: '0',
+                    data: [799, 730, 900, 100],
+                    color:'rgba(8,220,128,0.5)'
+                }],
+
+            });
+});
+
+</script>
+</body>
+</html>

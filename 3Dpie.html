@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript" src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="https://img.hcharts.cn/highcharts/highcharts-3d.js"></script>
+<script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+<body>
+<div id="container" style="height: 400px；width:400px"></div>
+<script type="text/javascript">
+	$(function () {
+    $('#container').highcharts({
+    	credits: {
+                    enabled:false
+                },
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,     //显示图表是否设置为3D， 我们将其设置为 true
+                alpha: 70,         //图表视图旋转角度
+                beta: 0,          //图表视图旋转角度
+                depth: 35,         //图表的合计深度，默认为100
+                viewDistance: 25,   //定义图表的浏览长度
+               
+            },
+            backgroundColor: '#000'
+        },
+      title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat:  '{series.name}: <b>{point.percentage:.1f}%</b>',
+            // '<span style="color:{point.color}">{series.name}</span>: <b>{percentage:.1f}%</b> of total<br/>' 
+           
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 40,
+                size:'80%',
+                dataLabels: {
+                    enabled: true,
+                    
+                     format:'<b>{point.name}</b>: {point.percentage:.2f} %'
+                },
+               
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '停车场数及占比',
+            data:[
+            {name:'红山区',     
+                y: 21.43,
+                    sliced: true,
+                    selected: true  },
+                
+                ['元宝山区',    18.57],                   
+                ['松山区',    20],
+                ['其他',   40]
+            ],
+           
+            colors:['rgba(0,222,255,0.6)','rgba(1,178,102,0.6)','rgba(255,204,0,0.6)','rgba(248,21,139,0.6)']
+            
+        }]
+    });
+});
+
+</script>
+</body>
+</html>
